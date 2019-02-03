@@ -56,6 +56,20 @@ public class Recursion {
     return sums;
   }
 
+  public String toString (ArrayList<Integer> list) {
+    String ans = "[ ";
+    for (int x = 0; x < list.size (); x ++) {
+      if (x != list.size () - 1) {
+        ans += list.get (x) + ",";
+      }
+      else {
+        ans += list.get (x);
+      }
+    }
+    ans += " ]";
+    return ans;
+  }
+
   public static void main (String[] args) {
     System.out.println ("Square Root:\nNumber" + "\t" + "Real" + "\tMine");
     for (int x = 0; x < 26; x ++) {
