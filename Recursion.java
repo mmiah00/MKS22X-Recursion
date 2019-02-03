@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Recursion {
   public static double mysqrt (double n, double guess, double tolerance) {
     if (n == 0) {
@@ -39,6 +41,12 @@ public class Recursion {
   }
 
   public static ArrayList<Integer> makeAllSums(int n){
+    return mas (0, n);
+  }
+
+  public static ArrayList <Integer> mas (int start, int n) {
+    ArrayList <Integer> sums = new ArrayList <Integer> ();
+    return sums;
   }
 
   public static void main (String[] args) {
