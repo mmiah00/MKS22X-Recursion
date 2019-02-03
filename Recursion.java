@@ -1,41 +1,42 @@
 import java.util.ArrayList;
 
 public class Recursion {
-  public static double mysqrt (double n, double guess, double tolerance) {
-    if (n == 0) {
-      return 0;
-    }
-    if (percentDifference (guess, n) > tolerance) {
-      return mysqrt (n,((n/guess + guess) / 2), tolerance);
-    }
-    else {
-      return guess;
-    }
-  }
 
   public static double sqrt (double n, double tolerance) {
     return mysqrt (n, 1, tolerance);
   }
 
-  public static double percentDifference (double guess, double square) {
+  public static double mysqrt (double n, double guess, double tolerance) { //helper for sqrt
+    if (n == 0) {
+      return 0;
+    }
+    if (percentDifference (guess, n) > tolerance) { //if the percent difference between the two is not within the tolerance,
+      return mysqrt (n,((n/guess + guess) / 2), tolerance); //you use Newtons formula to find the new guess.
+    }
+    else {
+      return guess; //if it is within the tolerance, then you return the guess
+    }
+  }
+
+  public static double percentDifference (double guess, double square) { //helper for mysqrt
     double mysquare = guess * guess;
     return ((Math.abs (mysquare - square)) / square) * 100;
   }
 
   public static int fib (int n) {
-    return myfib (n,n);
+    return myfib (n,n); //count starts with n and counts down
   }
 
-  public static int myfib (int count, int n) {
+  public static int myfib (int count, int n) { //helper for fib
     if (count < 2) {
-      return count;
+      return count;  //if 0 or 1, return 0/1
     }
     else {
       if (count - 2 < n) {
-        return myfib (count - 2,n) + myfib (count - 1, n);
+        return myfib (count - 2,n) + myfib (count - 1, n); //if two numbers before counter is less than n, add the fib of the one before and the one before that
       }
       else {
-        return myfib (count, n);
+        return myfib (count, n); // if it's equal to n, then just return fib of count
       }
     }
   }
@@ -45,17 +46,22 @@ public class Recursion {
     return mas (n, 0, ans);
   }
 
-  public static ArrayList <Integer> mas (int n, int part, ArrayList <Integer> sums) {
+  public static ArrayList <Integer> mas (int n, int part, ArrayList <Integer> sums) { //helper for makeAllSums, part is the partial sum
     if (n == 0) {
-      sums.add (part);
+      sums.add (part); //add partial sum to the list if n is 0
       return sums;
     }
     else {
-      return mas (n - 1, part + n, mas (n - 1, part, sums));
+      if (n > 0) { //if positive,
+        return mas (n - 1, part + n, mas (n - 1, part, sums)); // find mas of n - 1 and add n to part to create a new partial sum
+      }
+      else { //if negative,
+        return mas (n + 1, part + n, mas (n + 1, part, sums)); //its similar to positive but you add 1 to n instead of subtract
+      }
     }
   }
 
-  public static String toString (ArrayList<Integer> list) {
+  public static String toString (ArrayList<Integer> list) { //to test 
     String ans = "[";
     for (int x = 0; x < list.size (); x ++) {
       if (x != list.size () - 1) {
