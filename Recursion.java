@@ -41,23 +41,22 @@ public class Recursion {
   }
 
   public static ArrayList<Integer> makeAllSums(int n){
-    return mas (n, 0);
+    ArrayList <Integer> ans = new ArrayList <Integer> ();
+    return mas (n, 0, ans);
   }
 
-  public static ArrayList <Integer> mas (int n, int start) {
-    ArrayList <Integer> sums = new ArrayList <Integer> ();
+  public static ArrayList <Integer> mas (int n, int part, ArrayList <Integer> sums) {
     if (n == 0) {
-      sums.add (start);
+      sums.add (part);
+      return sums;
     }
     else {
-      mas (n - 1, start + n);
-      mas (n - 1, 0);
+      return mas (n - 1, part + n, mas (n - 1, part, sums));
     }
-    return sums;
   }
 
-  public String toString (ArrayList<Integer> list) {
-    String ans = "[ ";
+  public static String toString (ArrayList<Integer> list) {
+    String ans = "[";
     for (int x = 0; x < list.size (); x ++) {
       if (x != list.size () - 1) {
         ans += list.get (x) + ",";
@@ -66,7 +65,7 @@ public class Recursion {
         ans += list.get (x);
       }
     }
-    ans += " ]";
+    ans += "]";
     return ans;
   }
 
@@ -79,6 +78,11 @@ public class Recursion {
     System.out.println ("\nFibonacci:\nNumber\tSequence");
     for (int x = 0; x < 26; x ++) {
       System.out.println (x + "\t" + fib (x));
+    }
+
+    System.out.println ("\nMakeAllSums:\nNumber\tSums");
+    for (int x = 0; x < 4; x ++) {
+      System.out.println (x + "\t" + toString (makeAllSums (x)));
     }
   }
 }
