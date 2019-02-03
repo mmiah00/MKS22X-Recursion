@@ -41,11 +41,18 @@ public class Recursion {
   }
 
   public static ArrayList<Integer> makeAllSums(int n){
-    return mas (0, n);
+    return mas (n, 0);
   }
 
-  public static ArrayList <Integer> mas (int start, int n) {
+  public static ArrayList <Integer> mas (int n, int start) {
     ArrayList <Integer> sums = new ArrayList <Integer> ();
+    if (n == 0) {
+      sums.add (start);
+    }
+    else {
+      mas (n - 1, start + n);
+      mas (n - 1, 0);
+    }
     return sums;
   }
 
