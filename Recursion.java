@@ -61,7 +61,8 @@ public class Recursion {
     }
   }
 
-  public static String toString (ArrayList<Integer> list) { //to test 
+  /*
+  public static String toString (ArrayList<Integer> list) { //to test
     String ans = "[";
     for (int x = 0; x < list.size (); x ++) {
       if (x != list.size () - 1) {
@@ -86,9 +87,10 @@ public class Recursion {
       System.out.println (x + "\t" + fib (x));
     }
 
-    System.out.println ("\nMakeAllSums:\nNumber\tSums");
-    for (int x = 0; x < 4; x ++) {
-      System.out.println (x + "\t" + toString (makeAllSums (x)));
+    System.out.println ("\nMakeAllSums:\nNumber\tNumber of Sums");
+    for (int x = 0; x < 10; x ++) {
+      System.out.println (x + "\t" + makeAllSums (x).size ());
     }
   }
+  */
 }
