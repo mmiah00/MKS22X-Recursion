@@ -6,7 +6,7 @@ public class recursion {
     return mysqrt (n, 1, tolerance);
   }
 
-  public static double mysqrt (double n, double guess, double tolerance) { //helper for sqrt
+  private static double mysqrt (double n, double guess, double tolerance) { //helper for sqrt
     if (n == 0) {
       return 0;
     }
@@ -18,7 +18,7 @@ public class recursion {
     }
   }
 
-  public static double percentDifference (double guess, double square) { //helper for mysqrt
+  private static double percentDifference (double guess, double square) { //helper for mysqrt
     double mysquare = guess * guess;
     return ((Math.abs (mysquare - square)) / square) * 100;
   }
@@ -27,7 +27,7 @@ public class recursion {
     return myfib (n,n); //count starts with n and counts down
   }
 
-  public static int myfib (int count, int n) { //helper for fib
+  private static int myfib (int count, int n) { //helper for fib
     if (count < 2) {
       return count;  //if 0 or 1, return 0/1
     }
@@ -46,7 +46,7 @@ public class recursion {
     return mas (n, 0, ans);
   }
 
-  public static ArrayList <Integer> mas (int n, int part, ArrayList <Integer> sums) { //helper for makeAllSums, part is the partial sum
+  private static ArrayList <Integer> mas (int n, int part, ArrayList <Integer> sums) { //helper for makeAllSums, part is the partial sum
     if (n == 0) {
       sums.add (part); //add partial sum to the list if n is 0
       return sums;
